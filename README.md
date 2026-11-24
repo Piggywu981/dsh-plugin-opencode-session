@@ -1,5 +1,8 @@
 # dsh-plugin-opencode-session
 
+[![npm](https://img.shields.io/npm/v/dsh-plugin-opencode-session)](https://www.npmjs.com/package/dsh-plugin-opencode-session)
+[![license](https://img.shields.io/npm/l/dsh-plugin-opencode-session)](LICENSE)
+
 给 DeepSeek Harness（DSH）发往 **OpenCode 网关**（opencode.ai）的请求补上 `x-opencode-session` 路由头，修掉这一轮直接失败的报错：
 
 ```
@@ -97,6 +100,15 @@ npm test        # 13 个用例：瀑布事件接线、主机/路由匹配、头�
 - 路由匹配默认按 `opencode` 前缀和 `opencode.ai` 主机；指向别的主机时改 `hosts` / `providers`。
 - `session` 配成固定值时，同一插件实例的所有会话会在网关侧共用一个亲和 key，适合单用户调试，不适合多人共用。
 - 这是 DSH 侧的工作绕过：上游若把包装逻辑下沉到协议表，插件可以停用，停用后行为回到本文“原因”一节的原始状态。
+
+## 发布
+
+```bash
+npm login
+npm publish --access public
+```
+
+CI 发布：把 `ci/publish.yml` 复制到 `.github/workflows/publish.yml`，在仓库 Secrets 里加 `NPM_TOKEN`，推 `v*` 标签即自动 `npm publish --provenance`。（该文件放在 `ci/` 是因为创建仓库时的 OAuth token 没有 `workflow` scope，拿到 `gh auth refresh -s workflow` 后移回 `.github/workflows/` 即可。）
 
 ## 许可
 
