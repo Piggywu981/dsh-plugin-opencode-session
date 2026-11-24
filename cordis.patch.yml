@@ -1,0 +1,24 @@
+# Loader patch for the OpenCode session-header plugin.
+#
+# The row is inserted into the Host composition. `config` is optional and every
+# field has a default; uncomment the entries you want to change.
+- insert:
+    - id: opencode-session
+      name: 'dsh-plugin-opencode-session'
+      config:
+        # Gateway hosts that require the header.
+        hosts:
+          - opencode.ai
+        # Provider route keys treated as OpenCode routes (exact, `prefix-*`, or `prefix*`).
+        providers:
+          - opencode
+        # Header name; the gateway's own name is the default.
+        header: x-opencode-session
+        # Fixed value; leave empty to use the DSH session id per request.
+        session: ''
+        # Prefix of the per-process fallback value used when a request has no session id.
+        sessionPrefix: dsh
+        # Also patch global fetch for gateway traffic outside the pi-ai adapter.
+        patchFetch: true
+        # Log every injection through the host logger.
+        debug: false

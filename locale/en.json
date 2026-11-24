@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "OpenCode session header",
+    "description": "Adds the x-opencode-session routing header to OpenCode gateway requests, so route shapes that drop pi-ai's own wrapper stop failing with 400 MissingSessionID. Every pi-ai inference request is covered through the llm-pi-ai/request-headers waterfall, and an optional fetch guard covers model discovery and other direct gateway traffic. The value is the current DSH session id when the request has one and a stable per-process id otherwise; set hosts, providers, a fixed session value, or the fetch guard in the plugin row."
+  }
+}

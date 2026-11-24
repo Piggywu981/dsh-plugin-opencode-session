@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "OpenCode 会话头",
+    "description": "为发往 OpenCode 网关的请求补上 x-opencode-session 路由头，让丢掉 pi-ai 原生包装的路由不再以 400 MissingSessionID 失败。所有 pi-ai 推理请求经 llm-pi-ai/request-headers 瀑布事件覆盖；可选的 fetch 守卫覆盖模型发现等直连网关的请求。值优先取当前 DSH 会话 id，没有会话 id 时用进程内稳定的标识；hosts、providers、固定会话值和 fetch 守卫都可在插件行里配置。"
+  }
+}

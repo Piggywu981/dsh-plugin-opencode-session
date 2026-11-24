@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" role="img" aria-label="OpenCode session header">
+  <g fill="none" stroke="#5b8def" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M9 18h13" />
+    <path d="M19 13.5 25.5 18 19 22.5" />
+    <path d="M9 12.5v11" />
+  </g>
+  <circle cx="9" cy="18" r="2.6" fill="#5b8def" />
+</svg>
